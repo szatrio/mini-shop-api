@@ -44,7 +44,8 @@
 
 ## Database
 
-![image](https://github.com/szatrio/mini-shop-api/assets/31741060/d9bfcf24-158d-4a11-991c-78d8b46af6cc)
+![image](https://github.com/szatrio/mini-shop-api/assets/31741060/4561b902-a80d-427c-b227-d6ba51f76b00)
+
 
   
 
