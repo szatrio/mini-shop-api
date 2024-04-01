@@ -6,7 +6,6 @@ import com.example.minishopapi.entity.ProductType;
 import com.example.minishopapi.model.*;
 import com.example.minishopapi.repository.ProductRepository;
 import com.example.minishopapi.repository.ProductTypeRepository;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
@@ -20,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
-@Slf4j
+
 @Service
 public class ProductService {
 
@@ -55,6 +54,7 @@ public class ProductService {
         return ProductResponse.builder()
                 .id(product.getId())
                 .name(product.getName())
+                .price(product.getPrice())
                 .productType(product.getProductType().getName())
                 .createdAt(product.getCreatedAt())
                 .updatedAt(product.getUpdatedAt())
@@ -90,13 +90,11 @@ public class ProductService {
 
     @Transactional(readOnly = true)
     public Page<ProductResponse> getList(ProductListRequest  request){
-        List<Product> product = productRepository.findAll();
-
 
         Pageable pageable = PageRequest.of(request.getPage(), request.getLimit());
         Page<Product> products = productRepository.findAll(pageable);
 
-        List<ProductResponse> productResponses = product.stream()
+        List<ProductResponse> productResponses = products.stream()
                 .map(this::toProductResponse)
                 .toList();
 

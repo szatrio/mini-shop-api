@@ -27,7 +27,7 @@ public class CartProduct {
     @Column(name="updated_at")
     private Timestamp updatedAt;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "cart_id", referencedColumnName = "id")
     private Cart cart;
 

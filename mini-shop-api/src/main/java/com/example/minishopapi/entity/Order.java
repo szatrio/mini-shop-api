@@ -27,8 +27,8 @@ public class Order {
     @Column(name="updated_at")
     private Timestamp updatedAt;
 
-    @OneToOne
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
-    private Cart cart;
+    @ManyToOne
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    private Customer customer;
 }
 

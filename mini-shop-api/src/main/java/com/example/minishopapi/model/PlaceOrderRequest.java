@@ -1,6 +1,5 @@
 package com.example.minishopapi.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -9,25 +8,20 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UpdateProductRequest {
-
-    @JsonIgnore
-    @NotBlank
-    private String id;
+public class PlaceOrderRequest {
 
     @NotBlank
     @Size( max = 100)
-    private String name;
-
-    @NotNull
-    private Integer price;
+    private String customerId;
 
     @NotBlank
     @Size( max = 100)
-    private String productTypeId;
+    private List<String> cartProductIdList;
 
 }
