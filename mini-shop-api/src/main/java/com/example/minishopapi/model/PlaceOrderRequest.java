@@ -1,7 +1,7 @@
 package com.example.minishopapi.model;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,8 +20,7 @@ public class PlaceOrderRequest {
     @Size( max = 100)
     private String customerId;
 
-    @NotBlank
-    @Size( max = 100)
+    @NotEmpty
     private List<String> cartProductIdList;
 
 }

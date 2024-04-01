@@ -19,8 +19,18 @@ public class CartController {
             consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_JSON_VALUE
     )
-    public WebResponse<CartResponse> create(@RequestBody AddToCartRequest request){
+    public WebResponse<CartResponse> addToCart(@RequestBody AddToCartRequest request){
         CartResponse cartResponse = cartService.addToCart(request);
         return WebResponse.<CartResponse>builder().data(cartResponse).build();
+    }
+
+    @PostMapping(
+            path = "/api/orders",
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public WebResponse<OrderResponse> placeOrder(@RequestBody PlaceOrderRequest request){
+        OrderResponse orderResponse = cartService.placeOrder(request);
+        return WebResponse.<OrderResponse>builder().data(orderResponse).build();
     }
 }
