@@ -1,0 +1,24 @@
+package com.example.minishopapi.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.sql.Timestamp;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
+public class ProductTypeResponse {
+
+    private String id;
+
+    private String name;
+
+    private Timestamp createdAt;
+
+    private Timestamp updatedAt;
+}
+
